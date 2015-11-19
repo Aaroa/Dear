@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <!--数据库版本号 -->
+    <DATABASE_VERSION value="1"/>
+    <!-- Log日志开关 true开，false关-->
+    <LOG_SWITCH value="true"/>
+</config>
