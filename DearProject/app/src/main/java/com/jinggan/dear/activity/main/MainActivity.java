@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.jinggan.dear.R;
 import com.jinggan.dear.common.config.IConfigConstant;
+import com.jinggan.dear.storage.database.operate.ChatOperate;
 import com.jinggan.dear.utils.ILog;
 
 /**
@@ -24,6 +25,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ILog.d(TAG,"MainActivity");
+        ChatOperate operate=new ChatOperate(this);
     }
 }

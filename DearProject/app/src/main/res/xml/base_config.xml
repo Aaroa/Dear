@@ -2,6 +2,9 @@
 <config>
     <!--数据库版本号 -->
     <DATABASE_VERSION value="1"/>
+    <!--聊天消息表版本号-->
+    <CHAT_DATABASE_VERSION value="1"/>
+
     <!-- Log日志开关 true开，false关-->
     <LOG_SWITCH value="true"/>
 </config>

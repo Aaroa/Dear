@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.jinggan.dear.common.config.IConfigConstant;
+
 /**
  * @Package: com.jinggan.dear.storage.database
  * @Description: 数据库辅助类
@@ -14,7 +16,13 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class JGdatabaseHelper extends SQLiteOpenHelper {
 
+    public static final String DATABASE_NAME="jgDear.db";
 
+    public JGDatabaseManage databaseManage;
+
+    public JGdatabaseHelper(Context context){
+        super(context,DATABASE_NAME,null, IConfigConstant.DATABASE_VERSION);
+    }
 
     public JGdatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -22,7 +30,9 @@ public class JGdatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        if (databaseManage!=null){
+            databaseManage.creataAllTable(db);
+        }
     }
 
     @Override
