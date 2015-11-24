@@ -30,7 +30,7 @@ public class ChatOperate extends JGDatabaseOperate{
      * 插入
      * @param entity
      */
-    private void insert(ChatDataBaseEntity entity){
+    public void insert(ChatDataBaseEntity entity){
         if (db==null)
             db=databaseManage.writeDatabase();
 
@@ -59,4 +59,6 @@ public class ChatOperate extends JGDatabaseOperate{
 
         db.insert(ChatSql.TABLENAME,null,values);
     }
+
+
 }

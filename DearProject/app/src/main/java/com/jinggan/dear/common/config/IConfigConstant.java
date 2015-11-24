@@ -13,7 +13,7 @@ public class IConfigConstant {
     //数据库版本号
     public static final int DATABASE_VERSION= Integer.parseInt(IConfig.getConfig(IConfigTagValue.DATABASE_VERSION));
     //聊天消息表版本号
-    public static final int CHAT_DATABASE_VERSION=Integer.parseInt(IConfig.getConfig(IConfigTagValue.CHAT_DATABASE_VERSION));
+    public static final String  CHAT_DATABASE_VERSION=IConfig.getConfig(IConfigTagValue.CHAT_DATABASE_VERSION);
     //日志输入开关
     public static final boolean LOG_SWITCH=Boolean.parseBoolean(IConfig.getConfig(IConfigTagValue.LOG_SWITCH));
 }

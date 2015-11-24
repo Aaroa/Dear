@@ -25,26 +25,26 @@ public class ChatSql {
         sql="CREATE TABLE IF NOT EXISTS "+TABLENAME+" ( "+
                 ChatTable.TableVersion+" INTEGER NOT NULL, "+
                 ChatTable.Id+" INTEGER PRIMARY KEY, "+
-                ChatTable.FROMUID+" INTEGER NOT NULL, "+
-                ChatTable.TOUID+" INTEGER NOT NULL, "+
+                ChatTable.FROMUID+" INTEGER , "+
+                ChatTable.TOUID+" INTEGER , "+
                 ChatTable.NICK+" TEXT NOT NULL, "+
                 ChatTable.SEX+" INTEGER NOT NULL, "+
                 ChatTable.MESSAGE+" TEXT NOT NULL, "+
                 ChatTable.TYPE+" INTEGER NOT NULL, "+
                 ChatTable.CREATETIME+" INTEGER NOT NULL, "+
                 ChatTable.STATUS+" INTEGER NOT NULL, "+
-                ChatTable.MESSAGELOCALID+" INTEGER NOT NULL, "+
-                ChatTable.MESSAGESERVEID+" INTEGER NOT NULL, "+
+                ChatTable.MESSAGELOCALID+" INTEGER , "+
+                ChatTable.MESSAGESERVEID+" INTEGER , "+
                 ChatTable.DES+" INTEGER NOT NULL, "+
-                ChatTable.PROGRESS+" INTEGER NOT NULL, "+
-                ChatTable.RevInt0+" INTEGER NOT NULL, "+
-                ChatTable.RevInt1+" INTEGER NOT NULL, "+
-                ChatTable.RevInt2+" INTEGER NOT NULL, "+
-                ChatTable.RevInt3+" INTEGER NOT NULL, "+
-                ChatTable.RevStr0+" TEXT NOT NULL, "+
-                ChatTable.RevStr1+" TEXT NOT NULL, "+
-                ChatTable.RevStr2+" TEXT NOT NULL, "+
-                ChatTable.RevStr3+" TEXT NOT NULL "+" ) ";
+                ChatTable.PROGRESS+" INTEGER , "+
+                ChatTable.RevInt0+" INTEGER , "+
+                ChatTable.RevInt1+" INTEGER , "+
+                ChatTable.RevInt2+" INTEGER , "+
+                ChatTable.RevInt3+" INTEGER , "+
+                ChatTable.RevStr0+" TEXT , "+
+                ChatTable.RevStr1+" TEXT , "+
+                ChatTable.RevStr2+" TEXT , "+
+                ChatTable.RevStr3+" TEXT  "+" ) ";
 
         ILog.d(TAG,"chat create table sql=="+sql);
         return sql;
