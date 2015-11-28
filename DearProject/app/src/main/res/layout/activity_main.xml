@@ -3,13 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <TextView android:text="Hello World!" android:layout_width="wrap_content"
+    <com.jinggan.dear.view.ITextView
+        android:id="@+id/itext"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:textSize="16sp"
+        android:text="洛杉矶加工厂23412321‘；；。。、。撒了地方八3=朸？、ladfija离开萨芬囙。、、、同788喝酒为恨120--0恨"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/itext"
+        android:textSize="16sp"
+        android:layout_marginTop="14dp"
+        android:visibility="gone"
+        android:text="洛杉矶加工厂23412321‘；；。。、。撒了地方八3=朸？、ladfija离开萨芬囙。、、、同788喝酒为恨120--0恨"/>
+
 </RelativeLayout>

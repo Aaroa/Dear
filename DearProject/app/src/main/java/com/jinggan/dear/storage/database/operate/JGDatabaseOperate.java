@@ -45,8 +45,20 @@ public class JGDatabaseOperate {
                 db=databaseManage.writeDatabase();
             }
             db.execSQL(sql);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 执行带参数SQL语句
+     * @param sql
+     * @param args
+     */
+    public void execSql(String sql,Object[] args){
+        if (!checkDbIsOpen()){
+            db=databaseManage.writeDatabase();
+        }
+        db.execSQL(sql,args);
     }
 }

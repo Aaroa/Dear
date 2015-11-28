@@ -1,14 +1,17 @@
 package com.jinggan.dear.activity.main;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.jinggan.dear.R;
 import com.jinggan.dear.common.config.IConfigConstant;
+import com.jinggan.dear.common.dialog.IDialogFactory;
 import com.jinggan.dear.storage.database.Entity.ChatDataBaseEntity;
 import com.jinggan.dear.storage.database.operate.ChatOperate;
 import com.jinggan.dear.utils.ILog;
+import com.jinggan.dear.view.ITextView;
 
 /**
  * @Package: com.jinggan.dear.activity
@@ -26,7 +29,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ChatOperate operate=new ChatOperate(this);
+        ChatOperate operate=new ChatOperate(this,1023);
 
         ChatDataBaseEntity entity=new ChatDataBaseEntity();
         entity.setTableVer(IConfigConstant.CHAT_DATABASE_VERSION);
@@ -45,5 +48,11 @@ public class MainActivity extends Activity {
         if (operate!=null){
             operate.insert(entity);
         }
+
+       Dialog dialog= IDialogFactory.showMsgDialog(this, "标题", "这是消息", null, null);
+        IDialogFactory.showDialog(dialog);
+
+        ITextView textView=(ITextView)findViewById(R.id.itext);
+        textView.setText("洛杉矶加工厂23412321‘；；。。、。撒了地方八3=朸？、ladfija离开萨芬囙。、、、同788喝酒为恨120--0恨");
     }
 }

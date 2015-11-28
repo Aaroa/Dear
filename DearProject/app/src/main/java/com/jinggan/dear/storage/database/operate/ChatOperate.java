@@ -17,13 +17,13 @@ import com.jinggan.dear.storage.database.table.ChatTable;
  */
 public class ChatOperate extends JGDatabaseOperate{
 
-    public ChatOperate(Context context){
+    public ChatOperate(Context context,int uid){
         super(context);
-        this.execSql(ChatSql.createTablSql());
+        this.execSql(ChatSql.createTablSql(createTableName(uid)));
     }
 
-    public static ChatOperate getInstance(Context context){
-        return new ChatOperate(context);
+    public static ChatOperate getInstance(Context context,int uid){
+        return new ChatOperate(context,uid);
     }
 
     /**
@@ -60,5 +60,16 @@ public class ChatOperate extends JGDatabaseOperate{
         db.insert(ChatSql.TABLENAME,null,values);
     }
 
-
+    /**
+     * 通过uid创建表名
+     * @param uid
+     * @return
+     */
+    private String createTableName(int uid){
+        if (uid>0){
+            return "chat_"+uid;
+        }else{
+            return "chat_default_tab";
+        }
+    }
 }

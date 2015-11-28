@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">DearProject</string>
     <string name="title_activity_base">BaseActivity</string>
+
+
+    <!-- Dilaog -->
+    <string name="dialog_defalut_title">标题</string>
+    <string name="dialog_defalut_confirm_text">确定</string>
+    <string name="dialog_defalut_cancel_text">取消</string>
+    <string name="loading_defalut_dialog_text">加载中...</string>
 </resources>

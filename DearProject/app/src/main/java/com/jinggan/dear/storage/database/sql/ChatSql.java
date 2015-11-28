@@ -1,5 +1,7 @@
 package com.jinggan.dear.storage.database.sql;
 
+import android.text.TextUtils;
+
 import com.jinggan.dear.storage.database.table.ChatTable;
 import com.jinggan.dear.utils.ILog;
 
@@ -15,13 +17,18 @@ public class ChatSql {
 
     private final static String TAG="ChatSql";
 
-    public static final String TABLENAME="chatTable";
+    public static  String TABLENAME;
     /**
      * 表创建
      * @return
      */
-    public static String createTablSql(){
+    public static String createTablSql(String tableName){
         String sql=null;
+        if (TextUtils.isEmpty(tableName)){
+            TABLENAME="chatTable";
+        }else {
+            TABLENAME=tableName;
+        }
         sql="CREATE TABLE IF NOT EXISTS "+TABLENAME+" ( "+
                 ChatTable.TableVersion+" INTEGER NOT NULL, "+
                 ChatTable.Id+" INTEGER PRIMARY KEY, "+
@@ -48,5 +55,13 @@ public class ChatSql {
 
         ILog.d(TAG,"chat create table sql=="+sql);
         return sql;
+    }
+
+    /**
+     * 获取Chat表名
+     * @return
+     */
+    public  static String getChatTableName(){
+        return TABLENAME;
     }
 }
