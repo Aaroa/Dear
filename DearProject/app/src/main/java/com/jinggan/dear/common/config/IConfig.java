@@ -49,7 +49,6 @@ public class IConfig {
             return;
         }
         IS_INIT = true;
-
         boolean flagTag = false;// 标记属于需要配置的TAG
         boolean isConfigInTag = false;// 标记读取的值是在配置的TAG中
         String configTag = "";

@@ -649,10 +649,11 @@ public class IDialogFactory {
      */
     public static Dialog createLoadingDialog(Context context, String msg,
                                              boolean backPressCancel) {
-//        ILoadingBaseDialog dialog = new ILoadingBaseDialog(context);
-//        dialog.setBackPressCancel(backPressCancel);
-//        dialog.setTipText(msg);
-        return null;
+        ILoadingDialog dialog = new ILoadingDialog(context);
+        dialog.setBackPressCancel(backPressCancel);
+        dialog.setTipText(msg);
+        showDialog(dialog);
+        return dialog;
     }
 
     /**
@@ -665,10 +666,11 @@ public class IDialogFactory {
      */
     public static Dialog createLoadingDialog(Context context, int msgRes,
                                              boolean backPressCancel) {
-//        ILoadingBaseDialog dialog = new ILoadingBaseDialog(context);
-//        dialog.setBackPressCancel(backPressCancel);
-//        dialog.setTipText(msgRes);
-        return null;
+        ILoadingDialog dialog = new ILoadingDialog(context);
+        dialog.setBackPressCancel(backPressCancel);
+        dialog.setTipText(msgRes);
+        showDialog(dialog);
+        return dialog;
     }
 
     /**
