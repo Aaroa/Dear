@@ -2,23 +2,82 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <com.jinggan.dear.view.ITextView
-        android:id="@+id/itext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="洛杉矶加工厂23412321‘；；。。、。撒了地方八3=朸？、ladfija离开萨芬囙。、、、同788喝酒为恨120--0恨"/>
+    android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/main_title_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/itext"
-        android:textSize="16sp"
-        android:layout_marginTop="14dp"
-        android:visibility="gone"
-        android:text="洛杉矶加工厂23412321‘；；。。、。撒了地方八3=朸？、ladfija离开萨芬囙。、、、同788喝酒为恨120--0恨"/>
+        android:layout_height="@dimen/title_bar_height"
+        android:background="@android:color/holo_blue_light"
+        android:text="标题"
+        android:textSize="@dimen/text_size_20"
+        android:textColor="@color/white"
+        android:gravity="center"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_viewPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_title_tv"/>
+
+    <LinearLayout
+        android:id="@+id/main_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <RelativeLayout
+            android:id="@+id/main_message_layout"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="消息"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/main_dynamic_layout"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="动态"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/main_friend_layout"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="好友"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/main_me_layout"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="我"/>
+        </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>

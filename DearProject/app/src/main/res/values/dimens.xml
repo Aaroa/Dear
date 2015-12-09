@@ -45,4 +45,7 @@
     <dimen name="margin_2">2dip</dimen>
     <dimen name="margin_1">1dip</dimen>
 
+    <dimen name="title_bar_height">45dip</dimen>
+    <dimen name="main_bottom_heght">50dip</dimen>
+
 </resources>

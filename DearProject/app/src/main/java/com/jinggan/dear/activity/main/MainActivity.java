@@ -1,63 +1,120 @@
 package com.jinggan.dear.activity.main;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.jinggan.dear.R;
 import com.jinggan.dear.activity.BaseActivity;
-import com.jinggan.dear.common.Constants;
-import com.jinggan.dear.common.config.IConfig;
-import com.jinggan.dear.common.config.IConfigConstant;
-import com.jinggan.dear.common.config.IConfigTagValue;
-import com.jinggan.dear.common.dialog.IDialogFactory;
-import com.jinggan.dear.storage.database.Entity.ChatDataBaseEntity;
-import com.jinggan.dear.storage.database.operate.ChatOperate;
-import com.jinggan.dear.utils.ILog;
-import com.jinggan.dear.view.ITextView;
 
 /**
  * @Package: com.jinggan.dear.activity
- * @Description:
+ * @Description:主界面
  * @author: Aaron
  * @date: 2015-11-19
  * @Time: 11:48
  * @version: V1.0
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener,ViewPager.OnPageChangeListener{
 
     private final String TAG=this.getClass().getSimpleName();
+
+    public final int MAIN_MESSAGE_VALUE=0;
+    public final int MAIN_DYNAMIC_VALUE=1;
+    public final int MAIN_FRIEND_VALUE=2;
+    public final int MAIN_MINE_VALUE=3;
+
+    private ViewPager mViewPager;
+    private RelativeLayout mMessageLayout, mDynamicLayout, mFriendLayout, mMineLayout;
+    private TextView titleTv;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ChatOperate operate=new ChatOperate(this,1023);
-
-        ChatDataBaseEntity entity=new ChatDataBaseEntity();
-        entity.setTableVer(IConfigConstant.CHAT_DATABASE_VERSION);
-        entity.setFromUid(32);
-        entity.setToUid(433);
-        entity.setNick("王老五");
-        entity.setSex(1);
-        entity.setMessage("你知道是为什么吗");
-        entity.setType(1);
-        entity.setCreateTime(System.currentTimeMillis());
-        entity.setStatus(2);
-        entity.setMessageLocalId(1);
-        entity.setMessageServeId(123);
-        entity.setDes(0);
-        entity.setProgress(0);
-        if (operate!=null){
-            operate.insert(entity);
-        }
-
-//       Dialog dialog= IDialogFactory.showMsgDialog(this, "标题", "这是消息", null, null);
-//        IDialogFactory.showDialog(dialog);
-//
-//        ITextView textView=(ITextView)findViewById(R.id.itext);
-//        textView.setText("洛杉矶加工厂23412321‘；；。。、。撒了地方八3=朸？、ladfija离开萨芬囙。、、、同788喝酒为恨120--0恨");
-   IDialogFactory.createLoadingDialog(this,"登录中...");
+        findViewById();
+        initView();
+        setListener();
+        setMainTitle(MAIN_MESSAGE_VALUE);
     }
+
+    private void findViewById(){
+        mViewPager=(ViewPager)findViewById(R.id.main_viewPage);
+        mMessageLayout=(RelativeLayout)findViewById(R.id.main_message_layout);
+        mDynamicLayout =(RelativeLayout)findViewById(R.id.main_dynamic_layout);
+        mFriendLayout =(RelativeLayout)findViewById(R.id.main_friend_layout);
+        mMineLayout =(RelativeLayout)findViewById(R.id.main_me_layout);
+        titleTv=(TextView)findViewById(R.id.main_title_tv);
+    }
+
+    private void initView(){
+        mViewPager.setAdapter(new MainViewPagerAdapter(getSupportFragmentManager()));
+        mViewPager.addOnPageChangeListener(this);
+    }
+
+    private void setListener(){
+        mMessageLayout.setOnClickListener(this);
+        mDynamicLayout.setOnClickListener(this);
+        mFriendLayout.setOnClickListener(this);
+        mMineLayout.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.main_message_layout:
+                mViewPager.setCurrentItem(MAIN_MESSAGE_VALUE);
+                setMainTitle(MAIN_MESSAGE_VALUE);
+                break;
+            case R.id.main_dynamic_layout:
+                mViewPager.setCurrentItem(MAIN_DYNAMIC_VALUE);
+                setMainTitle(MAIN_DYNAMIC_VALUE);
+                break;
+            case R.id.main_friend_layout:
+                mViewPager.setCurrentItem(MAIN_FRIEND_VALUE);
+                setMainTitle(MAIN_FRIEND_VALUE);
+                break;
+            case R.id.main_me_layout:
+                mViewPager.setCurrentItem(MAIN_MINE_VALUE);
+                setMainTitle(MAIN_MINE_VALUE);
+                break;
+        }
+    }
+
+    private void setMainTitle(int currentPager){
+        switch (currentPager){
+            case MAIN_MESSAGE_VALUE:
+                titleTv.setText(R.string.main_tab_message);
+                break;
+            case MAIN_DYNAMIC_VALUE:
+                titleTv.setText(R.string.main_tab_dynamic);
+                break;
+            case MAIN_FRIEND_VALUE:
+                titleTv.setText(R.string.main_tab_friend);
+                break;
+            case MAIN_MINE_VALUE:
+                titleTv.setText(R.string.main_tab_mine);
+                break;
+        }
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        setMainTitle(position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+
 }
