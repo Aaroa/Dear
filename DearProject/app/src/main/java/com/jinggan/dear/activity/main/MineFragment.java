@@ -10,6 +10,7 @@ import com.jinggan.dear.R;
 import com.jinggan.dear.activity.BaseFragment;
 
 /**
+ * 我的
  * Created by wuhezhi on 2015/12/9.
  */
 public class MineFragment extends BaseFragment {

@@ -9,4 +9,14 @@
     <color name="dialog_btn_text">#009688</color>
     <color name="dialog_btn_selector">#B6B6B6</color>
     <color name="transparent">#00000000</color>
+    <color name="account_regist_text">#02BB00</color>
+
+    <color name="btn_red">#DA4336</color>
+    <color name="btn_greed">#0F9D58</color>
+    <color name="btn_blue">#039BE5</color>
+    <color name="btn_purple">#3F51B5</color>
+    <color name="btn_press">#757575</color>
+    
+    <color name="main_tab_normal_color">#36C8C5</color>
+    <color name="main_tab_press_color">#F8245F</color>
 </resources>

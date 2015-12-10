@@ -29,6 +29,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private ViewPager mViewPager;
     private RelativeLayout mMessageLayout, mDynamicLayout, mFriendLayout, mMineLayout;
     private TextView titleTv;
+    private TextView mMsgTv,mDynamicTv,mFriendTv,mMineTv;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         initView();
         setListener();
         setMainTitle(MAIN_MESSAGE_VALUE);
+        setTabText(MAIN_MESSAGE_VALUE);
     }
 
     private void findViewById(){
@@ -47,6 +49,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         mFriendLayout =(RelativeLayout)findViewById(R.id.main_friend_layout);
         mMineLayout =(RelativeLayout)findViewById(R.id.main_me_layout);
         titleTv=(TextView)findViewById(R.id.main_title_tv);
+
+        mMsgTv=(TextView)findViewById(R.id.main_msg_tv);
+        mDynamicTv=(TextView)findViewById(R.id.main_dynamic_tv);
+        mFriendTv=(TextView)findViewById(R.id.main_friend_tv);
+        mMineTv=(TextView)findViewById(R.id.main_mine_tv);
     }
 
     private void initView(){
@@ -101,6 +108,35 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         }
     }
 
+    private void setTabText(int position){
+        switch (position){
+            case MAIN_MESSAGE_VALUE:
+                mMsgTv.setBackgroundColor(getResources().getColor(R.color.main_tab_press_color));
+                mDynamicTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                mFriendTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                mMineTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                break;
+            case MAIN_DYNAMIC_VALUE:
+                mMsgTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                mDynamicTv.setBackgroundColor(getResources().getColor(R.color.main_tab_press_color));
+                mFriendTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                mMineTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                break;
+            case MAIN_FRIEND_VALUE:
+                mMsgTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                mDynamicTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                mFriendTv.setBackgroundColor(getResources().getColor(R.color.main_tab_press_color));
+                mMineTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                break;
+            case MAIN_MINE_VALUE:
+                mMsgTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                mDynamicTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                mFriendTv.setBackgroundColor(getResources().getColor(R.color.main_tab_normal_color));
+                mMineTv.setBackgroundColor(getResources().getColor(R.color.main_tab_press_color));
+                break;
+        }
+    }
+
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -109,6 +145,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     @Override
     public void onPageSelected(int position) {
         setMainTitle(position);
+        setTabText(position);
     }
 
     @Override

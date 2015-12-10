@@ -3,6 +3,14 @@
     <string name="app_name">Dear</string>
     <string name="title_activity_base">BaseActivity</string>
 
+    <string name="pull_to_refresh_pull_label">下拉刷新</string>
+    <string name="pull_to_refresh_release_label">松开刷新</string>
+    <string name="pull_to_refresh_refreshing_label">正在刷新</string>
+    <string name="pull_to_load_pull_label">上拉加载更多</string>
+    <string name="pull_to_load_release_label">松开加载</string>
+    <string name="pull_to_load_loading_label">正在加载</string>
+
+
     <string name="main_tab_message">消息</string>
     <string name="main_tab_dynamic">动态</string>
     <string name="main_tab_friend">好友</string>
