@@ -1,6 +1,8 @@
 package com.jinggan.dear.activity.chat;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.jinggan.dear.R;
 import com.jinggan.dear.activity.BaseActivity;
@@ -19,6 +21,10 @@ public class ChatBaseActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+    }
 
+    @Override
+    public void onBackListener() {
+        super.onBackListener();
     }
 }

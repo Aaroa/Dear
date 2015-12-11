@@ -2,6 +2,7 @@ package com.jinggan.dear.activity.main;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -154,5 +155,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
 
     }
 
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return super.onKeyDown(keyCode, event);
+    }
 }
