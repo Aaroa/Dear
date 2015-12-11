@@ -19,4 +19,8 @@
     
     <color name="main_tab_normal_color">#36C8C5</color>
     <color name="main_tab_press_color">#F8245F</color>
+
+    <!--title -->
+    <color name="title_color">#2B2B2B</color>
+    <color name="title_press_color">#3C3F41</color>
 </resources>

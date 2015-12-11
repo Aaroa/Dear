@@ -30,6 +30,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_login);
         findViewById();
+
+        setLeftOnClick();
     }
 
     private void findViewById(){

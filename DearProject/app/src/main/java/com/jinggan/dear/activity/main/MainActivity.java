@@ -40,6 +40,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         setListener();
         setMainTitle(MAIN_MESSAGE_VALUE);
         setTabText(MAIN_MESSAGE_VALUE);
+        goneHeadView();
     }
 
     private void findViewById(){

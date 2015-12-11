@@ -13,6 +13,7 @@ import com.jinggan.dear.R;
 import com.jinggan.dear.common.Constants;
 import com.jinggan.dear.network.socket.PersistConnect;
 import com.jinggan.dear.utils.ActivityManage;
+import com.jinggan.dear.widget.HeadView;
 
 
 /**
@@ -23,8 +24,10 @@ import com.jinggan.dear.utils.ActivityManage;
  * @Time: 11:55
  * @version: V1.0
  */
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends FragmentActivity implements HeadView.HeadViewListener{
     private final String TAG="BaseActivity";
+
+    private HeadView mHeadView;
 
     /**
      * 布局实例器
@@ -46,6 +49,7 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     private void findViewById(){
+        mHeadView=(HeadView)findViewById(R.id.base_activity_title);
         mLayoutInflater = LayoutInflater.from(this);
         mLinearLayoutContent=(FrameLayout)findViewById(R.id.base_activity_container);
     };
@@ -69,5 +73,63 @@ public abstract class BaseActivity extends FragmentActivity {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         mLinearLayoutContent.removeAllViews();
         mLinearLayoutContent.addView(view, lp);
+    }
+
+//    public abstract void onBackListener();
+
+//    public onBackClickListener
+
+    @Override
+    public void setLeftOnClick(){
+//        mHeadView.setLeftBackOnClick();
+    }
+
+    @Override
+    public void setRightOnClick() {
+
+    }
+
+    @Override
+    public void setHeadTitle(int resid) {
+
+    }
+
+    @Override
+    public void setHeadTitle(String str) {
+
+    }
+
+    @Override
+    public void setRightText(int resid) {
+
+    }
+
+    @Override
+    public void setRightText(String str) {
+
+    }
+
+    @Override
+    public void setRightImage(int resid) {
+
+    }
+
+    @Override
+    public void setRightImageVisibility(int visibility) {
+
+    }
+
+    @Override
+    public void setRightTextVisibility(int visibility) {
+
+    }
+
+    @Override
+    public void setHeadViewVisibility(int visibility) {
+        mHeadView.setVisibility(visibility);
+    }
+
+    public void goneHeadView(){
+        setHeadViewVisibility(View.GONE);
     }
 }
