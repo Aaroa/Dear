@@ -14,8 +14,8 @@ public class PersistConnect {
 
     public static void openPersist(String host,int port){
         ILog.d(TAG,"host="+host+", port=="+port);
-//        Bootstrap bootstrap=new Bootstrap();
-//
-//        ChannelFuture future=bootstrap.connect(host,port);
+        Bootstrap bootstrap=new Bootstrap();
+
+        ChannelFuture future=bootstrap.connect(host,port);
     }
 }

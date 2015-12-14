@@ -21,4 +21,7 @@
     <string name="dialog_defalut_confirm_text">确定</string>
     <string name="dialog_defalut_cancel_text">取消</string>
     <string name="loading_defalut_dialog_text">加载中...</string>
+
+    <!--Chat-->
+    <string name="chat_send">发送</string>
 </resources>

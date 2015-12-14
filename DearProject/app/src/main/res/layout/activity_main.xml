@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dip"
         android:orientation="horizontal"
+        android:background="@android:color/darker_gray"
         android:layout_alignParentBottom="true">
 
         <RelativeLayout
@@ -34,16 +35,8 @@
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1">
-            <TextView
-                android:id="@+id/main_msg_tv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="消息"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_20"
-                android:background="@color/main_tab_press_color"/>
+            <include layout="@layout/main_tab_layout"
+                android:id="@+id/main_msg"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -51,16 +44,8 @@
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1">
-            <TextView
-                android:id="@+id/main_dynamic_tv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="动态"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_20"
-                android:background="@color/main_tab_normal_color"/>
+            <include layout="@layout/main_tab_layout"
+                android:id="@+id/main_dynamic"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -68,16 +53,8 @@
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1">
-            <TextView
-                android:id="@+id/main_friend_tv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="好友"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_20"
-                android:background="@color/main_tab_normal_color"/>
+            <include layout="@layout/main_tab_layout"
+                android:id="@+id/main_friend"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -85,16 +62,8 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1">
-            <TextView
-                android:id="@+id/main_mine_tv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="我"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_20"
-                android:background="@color/main_tab_normal_color"/>
+            <include layout="@layout/main_tab_layout"
+                android:id="@+id/main_mine"/>
         </RelativeLayout>
     </LinearLayout>
 

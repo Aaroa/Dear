@@ -9,7 +9,11 @@ import android.view.ViewGroup;
 import com.jinggan.dear.R;
 import com.jinggan.dear.activity.BaseFragment;
 import com.jinggan.dear.activity.chat.ChatActivity;
+import com.jinggan.dear.network.netty.ClientThreadPool;
 import com.jinggan.dear.utils.ISkipActivityUtil;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 消息列表
@@ -29,7 +33,9 @@ public class MessageFragment extends BaseFragment {
         view.findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ISkipActivityUtil.startIntent(getActivity(), ChatActivity.class);
+                ExecutorService es = Executors.newCachedThreadPool();
+                es.execute(new ClientThreadPool());
+//                ISkipActivityUtil.startIntent(getActivity(), ChatActivity.class);
             }
         });
         return view;

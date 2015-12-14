@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="main_bg">#EBEBEB</color>
+    <color name="line">#9C9C9C</color>
+
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="dialog_btn_text">#009688</color>

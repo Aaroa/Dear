@@ -14,12 +14,16 @@ import android.widget.LinearLayout;
 import com.jinggan.dear.R;
 import com.jinggan.dear.common.Constants;
 import com.jinggan.dear.common.event.NoticeEvent;
+import com.jinggan.dear.network.netty.ClientThreadPool;
 import com.jinggan.dear.network.socket.PersistConnect;
 import com.jinggan.dear.utils.ActivityManage;
 import com.jinggan.dear.utils.IHandlerUtils;
 import com.jinggan.dear.utils.ILog;
 import com.jinggan.dear.utils.IToastUtils;
 import com.jinggan.dear.widget.HeadView;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import de.greenrobot.event.EventBus;
 
@@ -57,7 +61,8 @@ public abstract class BaseActivity extends FragmentActivity implements HeadView.
         setRightOnClick();
 
         ActivityManage.getInstance().addActivity(this);
-        PersistConnect.openPersist(Constants.IP,Constants.PORT);
+//        PersistConnect.openPersist(Constants.IP,Constants.PORT);
+
     }
 
     private void findViewById(){
@@ -176,37 +181,37 @@ public abstract class BaseActivity extends FragmentActivity implements HeadView.
 
     @Override
     public void setHeadTitle(int resid) {
-
+        mHeadView.setTitleText(resid);
     }
 
     @Override
     public void setHeadTitle(String str) {
-
+        mHeadView.setTitleText(str);
     }
 
     @Override
     public void setRightText(int resid) {
-
+        mHeadView.setRightText(resid);
     }
 
     @Override
     public void setRightText(String str) {
-
+        mHeadView.setRightText(str);
     }
 
     @Override
     public void setRightImage(int resid) {
-
+        mHeadView.setRightImage(resid);
     }
 
     @Override
     public void setRightImageVisibility(int visibility) {
-
+        mHeadView.setRightImageVisility(visibility);
     }
 
     @Override
     public void setRightTextVisibility(int visibility) {
-
+        mHeadView.setRightTextVisility(visibility);
     }
 
     @Override
