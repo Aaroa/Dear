@@ -33,9 +33,9 @@ public class MessageFragment extends BaseFragment {
         view.findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ExecutorService es = Executors.newCachedThreadPool();
-                es.execute(new ClientThreadPool());
-//                ISkipActivityUtil.startIntent(getActivity(), ChatActivity.class);
+//                ExecutorService es = Executors.newCachedThreadPool();
+//                es.execute(new ClientThreadPool());
+                ISkipActivityUtil.startIntent(getActivity(), ChatActivity.class);
             }
         });
         return view;

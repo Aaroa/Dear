@@ -22,6 +22,8 @@
     
     <color name="main_tab_normal_color">#36C8C5</color>
     <color name="main_tab_press_color">#F8245F</color>
+    <color name="main_title_normal">#727071</color>
+    <color name="main_title_press">#BBE96D</color>
 
     <!--title -->
     <color name="title_color">#2B2B2B</color>

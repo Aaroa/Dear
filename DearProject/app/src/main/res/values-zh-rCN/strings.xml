@@ -15,6 +15,8 @@
     <string name="main_tab_dynamic">动态</string>
     <string name="main_tab_friend">好友</string>
     <string name="main_tab_mine">我</string>
+    <string name="main_title_dynamic">Dear</string>
+    <string name="main_title_talk">Talk</string>
 
     <!-- Dilaog -->
     <string name="dialog_defalut_title">标题</string>
