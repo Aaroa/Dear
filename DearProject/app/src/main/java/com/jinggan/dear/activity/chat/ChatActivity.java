@@ -25,9 +25,9 @@ public class ChatActivity extends ChatBaseActivity implements View.OnClickListen
     }
 
     private void findViewById(){
-        mKeyboardBtn=(ImageButton)findViewById(R.id.chat_keyboard_btn);
-        mEmotioBtn=(ImageButton)findViewById(R.id.chat_emotion_btn);
-        mMoreBtn=(ImageButton)findViewById(R.id.chat_more_btn);
+        mVoiceImageBtn =(ImageButton)findViewById(R.id.chat_voice_iamge_btn);
+        mEmotioBtn=(ImageButton)findViewById(R.id.chat_emotion_image_btn);
+        mMoreBtn=(ImageButton)findViewById(R.id.chat_more_image_btn);
         mEditText=(EditText)findViewById(R.id.chat_edit);
         mSendBtn=(Button) findViewById(R.id.chat_send_btn);
         mVoiceBtn=(Button)findViewById(R.id.chat_voice_btn);
@@ -35,7 +35,7 @@ public class ChatActivity extends ChatBaseActivity implements View.OnClickListen
     }
 
     private void setListener(){
-        mKeyboardBtn.setOnClickListener(this);
+        mVoiceImageBtn.setOnClickListener(this);
         mEmotioBtn.setOnClickListener(this);
         mMoreBtn.setOnClickListener(this);
         mSendBtn.setOnClickListener(this);
@@ -44,21 +44,21 @@ public class ChatActivity extends ChatBaseActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.chat_keyboard_btn:
+            case R.id.chat_voice_iamge_btn:
                 if (isKeyboard){
-                    mKeyboardBtn.setBackgroundResource(R.mipmap.message_icon_voice_un);
-                    mVoiceBtn.setVisibility(View.VISIBLE);
-                    mEditLayout.setVisibility(View.GONE);
-                }else {
-                    mKeyboardBtn.setBackgroundResource(R.mipmap.message_icon_keyboard_un);
+                    mVoiceImageBtn.setBackgroundResource(R.mipmap.message_icon_voice_un);
                     mVoiceBtn.setVisibility(View.GONE);
                     mEditLayout.setVisibility(View.VISIBLE);
+                }else {
+                    mVoiceImageBtn.setBackgroundResource(R.mipmap.message_icon_keyboard_un);
+                    mVoiceBtn.setVisibility(View.VISIBLE);
+                    mEditLayout.setVisibility(View.GONE);
                 }
                 isKeyboard=!isKeyboard;
                 break;
-            case R.id.chat_emotion_btn:
+            case R.id.chat_emotion_image_btn:
                 break;
-            case R.id.chat_more_btn:
+            case R.id.chat_more_image_btn:
                 break;
             case R.id.chat_send_btn:
                 break;

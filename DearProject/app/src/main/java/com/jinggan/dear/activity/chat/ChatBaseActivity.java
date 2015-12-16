@@ -21,12 +21,12 @@ import com.jinggan.dear.activity.BaseActivity;
  */
 public class ChatBaseActivity extends BaseActivity {
 
-    protected ImageButton mKeyboardBtn,mEmotioBtn,mMoreBtn;
+    protected ImageButton mVoiceImageBtn,mEmotioBtn,mMoreBtn;
     protected EditText mEditText;
     protected Button mSendBtn,mVoiceBtn;
     protected LinearLayout mEditLayout;
 
-    protected boolean isKeyboard=true;
+    protected boolean isKeyboard=false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
