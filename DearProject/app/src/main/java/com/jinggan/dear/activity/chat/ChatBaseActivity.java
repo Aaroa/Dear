@@ -6,10 +6,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.jinggan.dear.R;
 import com.jinggan.dear.activity.BaseActivity;
+import com.jinggan.dear.vender.pulltoprefresh.PullToRefreshListView;
 
 /**
  * @Package: com.jinggan.dear.activity.chat
@@ -20,6 +22,9 @@ import com.jinggan.dear.activity.BaseActivity;
  * @version: V1.0
  */
 public class ChatBaseActivity extends BaseActivity {
+
+    protected PullToRefreshListView mListView;
+    protected RelativeLayout mBgLayout;
 
     protected ImageButton mVoiceImageBtn,mEmotioBtn,mMoreBtn;
     protected EditText mEditText;

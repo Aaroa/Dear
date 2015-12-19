@@ -1,19 +1,24 @@
 package com.jinggan.dear.activity.chat;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.jinggan.dear.R;
+import com.jinggan.dear.vender.pulltoprefresh.PullToRefreshListView;
 
 /**
  * 聊天类
  * Created by wuhezhi on 2015/12/11.
  */
-public class ChatActivity extends ChatBaseActivity implements View.OnClickListener {
+public class ChatActivity extends ChatBaseActivity implements View.OnClickListener,TextWatcher {
 
 
     @Override
@@ -25,6 +30,9 @@ public class ChatActivity extends ChatBaseActivity implements View.OnClickListen
     }
 
     private void findViewById(){
+        mListView=(PullToRefreshListView)findViewById(R.id.chat_listview);
+        mBgLayout=(RelativeLayout)findViewById(R.id.chat_layout);
+
         mVoiceImageBtn =(ImageButton)findViewById(R.id.chat_voice_iamge_btn);
         mEmotioBtn=(ImageButton)findViewById(R.id.chat_emotion_image_btn);
         mMoreBtn=(ImageButton)findViewById(R.id.chat_more_image_btn);
@@ -39,6 +47,8 @@ public class ChatActivity extends ChatBaseActivity implements View.OnClickListen
         mEmotioBtn.setOnClickListener(this);
         mMoreBtn.setOnClickListener(this);
         mSendBtn.setOnClickListener(this);
+        mEditText.addTextChangedListener(this);
+        mBgLayout.setOnClickListener(this);
     }
 
     @Override
@@ -62,6 +72,31 @@ public class ChatActivity extends ChatBaseActivity implements View.OnClickListen
                 break;
             case R.id.chat_send_btn:
                 break;
+            case R.id.chat_layout:
+                showToast("click");
+                hideSoftInput(mEditText);
+                break;
         }
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        if (TextUtils.isEmpty(s)){
+            mVoiceImageBtn.setVisibility(View.VISIBLE);
+            mSendBtn.setVisibility(View.GONE);
+        }else{
+            mVoiceImageBtn.setVisibility(View.GONE);
+            mSendBtn.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
     }
 }

@@ -1,6 +1,7 @@
 package com.jinggan.dear.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
@@ -8,6 +9,8 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -49,11 +52,13 @@ public abstract class BaseActivity extends FragmentActivity implements HeadView.
      * 核心内容
      */
     private FrameLayout mLinearLayoutContent;
+
+    protected InputMethodManager mInput;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_base);
-
+        mInput = (InputMethodManager) getApplication().getSystemService(Context.INPUT_METHOD_SERVICE);
         EventBus.getDefault().register(this);
 
         findViewById();
@@ -106,7 +111,7 @@ public abstract class BaseActivity extends FragmentActivity implements HeadView.
      * @param obj
      */
     public void sendHandlerMessage(Handler handler, int what, int arg1, Object obj) {
-        IHandlerUtils.sendHandlerMessage(handler,what,arg1,obj);
+        IHandlerUtils.sendHandlerMessage(handler, what, arg1, obj);
     }
 
     /**
@@ -149,6 +154,33 @@ public abstract class BaseActivity extends FragmentActivity implements HeadView.
 
     public void onEvent(NoticeEvent event){
 
+    }
+
+    /**
+     * 显示软键盘
+     *
+     * @param edittext
+     */
+    public void showSoftInput(final EditText edittext) {
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                edittext.requestFocus();
+                if (mInput != null)
+                    mInput.showSoftInput(edittext, 0);
+            }
+        }, 700);
+    }
+
+    /**
+     * 收起软键盘
+     *
+     * @param et
+     */
+    public void hideSoftInput(EditText et) {
+        if (null != mInput && mInput.isActive())
+            mInput.hideSoftInputFromWindow(et.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     @Override

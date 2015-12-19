@@ -82,7 +82,7 @@ public class ImageLoader {
      * @param config
      * @param loadCallBack
      */
-    public void dispaly(String path,ImageView imageView,BitmapDisplayConfig config,DefaultBitmapLoadCallBack<ImageView> loadCallBack){
+    public void display(String path,ImageView imageView,BitmapDisplayConfig config,DefaultBitmapLoadCallBack<ImageView> loadCallBack){
         mBitmapUtils.display(imageView,path,config,loadCallBack);
     }
 }
